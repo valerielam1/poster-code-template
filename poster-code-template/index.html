@@ -1,0 +1,507 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>MAKE YOUR MARK 2018</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/base.css">
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif" rel="stylesheet">
+
+	<style>
+		/* svg */
+
+		svg {
+			position: absolute;
+			width: 150vw;
+			left: 15vw;
+			top: 0vh;
+		}
+
+		/* .blank {
+			fill: none;
+			position: absolute;
+			left: 0;
+		} */
+
+		path.circle {
+			position: absolute;
+			top: 0vh;
+			width: 100vw;
+			left: 0vw;
+			transition: all .1s;
+		}
+
+		/* the rest of the stuff */
+
+		* {
+			transition: all .9s;
+		}
+
+		body {
+			color: white;
+			background-color: #DBD8F0;
+		}
+
+		div.date {
+			font-family: "IBM Plex Sans", Arial, sans-serif;
+			font-weight: 200;
+			font-size: 3vw;
+			top: 5vh;
+			left: 5vw;
+		}
+
+		div.topline {
+			background-color: white;
+			position: absolute;
+			height: .3vh;
+			width: 60vw;
+			top: 7vh;
+			left: 35vw;
+		}
+
+		div.botline {
+			background-color: white;
+			position: absolute;
+			height: .3vh;
+			width: 49vw;
+			bottom: 7vh;
+			left: 5vw;
+		}
+
+		a {
+			text-decoration: none;
+			color: white;
+			font-family: "IBM Plex Sans", Arial, sans-serif;
+			font-size: 3vw;
+			font-weight: 200;
+		}
+
+		a.link {
+			position: absolute;
+			bottom: 5vh;
+			right: 5vw;
+		}
+
+		a:hover {
+			color: #9648fe;
+		}
+
+		div.midterm {
+			opacity: 0;
+		}
+
+		div.earlyvote {
+			opacity: 0;
+		}
+
+		div.rightline {
+			opacity: 0;
+		}
+
+		div.leftline {
+			opacity: 0;
+		}
+
+		div.makeyourmark {
+			font-family: "IBM Plex Serif", "Times New Roman", serif;
+			font-size: 15vw;
+			font-weight: 100;
+			width: 25vw;
+			font-style: italic;
+			position: absolute;
+			left: 125px;
+			top: 8vh;
+		}
+
+		/*
+			4 base layouts: sm, wd, tl, bg
+			anything above this line will be used for small layout.
+		 */
+
+		/* wide */
+		@media (min-width: 600px) and (max-height: 600px) {
+			body {
+				background-color: #E7BBE3;
+			}
+
+			svg {
+				position: absolute;
+				width: 200vh;
+				left: 8vw;
+				top: 3vh;
+			}
+
+			div.makeyourmark {
+				position: absolute;
+				width: 1440px;
+				font-size: 9vw;
+				font-weight: 100;
+				left: 15vw;
+				top: 32vh;
+				line-height: 15vh;
+			}
+
+			div.date {
+				font-size: 1.5vw;
+				font-weight: 200;
+				top: 6vh;
+				left: 5vw;
+			}
+
+			div.topline {
+				background-color: white;
+				position: absolute;
+				height: .3vh;
+				width: 75vw;
+				top: 9vh;
+				left: 20vw;
+			}
+
+			div.botline {
+				background-color: white;
+				position: absolute;
+				height: .2vh;
+				width: 69vw;
+				bottom: 7vh;
+				left: 5vw;
+			}
+
+			a.link {
+				position: absolute;
+				bottom: 5vh;
+				right: 5vw;
+			}
+
+			a {
+				text-decoration: none;
+				color: white;
+				font-family: "IBM Plex Sans", Arial, sans-serif;
+				font-size: 1.5vw;
+				font-weight: 200;
+			}
+
+			a.link {
+				position: absolute;
+				bottom: 5vh;
+				right: 5vw;
+			}
+		}
+
+		/* tall */
+		@media (max-width: 800px) and (min-height: 400px) {
+			body {
+				background-color: #3EECAC;
+			}
+
+			svg {
+				position: absolute;
+				width: 150vw;
+				left: 15vw;
+				top: 10vh;
+			}
+
+			div.makeyourmark {
+				position: absolute;
+				width: 120px;
+				font-size: 23vw;
+				font-weight: 100;
+				left: 19vw;
+				top: 25vh;
+				line-height: 20vh;
+			}
+
+			div.date {
+				font-family: "IBM Plex Sans", Arial, sans-serif;
+				font-size: 12px;
+				font-weight: 200;
+				left: 25px;
+			}
+
+			div.topline {
+				background-color: white;
+				position: absolute;
+				height: .1vh;
+				width: 50vw;
+				top: 6vh;
+				left: 145px;
+			}
+
+			div.rightside {
+				width: 5vw;
+				height: 100vh;
+				top: 1vh;
+				right: 1vw;
+				position: absolute;
+			}
+
+			div.midterm {
+				font-family: "IBM Plex Sans", Arial, sans-serif;
+				font-size: 12px;
+				font-weight: 200;
+				width: 150px;
+				opacity: 1;
+				right: 75px;
+				transform: rotate(90deg);
+				top: 98px;
+				position: relative;
+			}
+
+			div.rightline {
+				background-color: white;
+				position: relative;
+				height: 67vh;
+				width: .1vh;
+				top: 135px;
+				right: 0px;
+				opacity: 1;
+			}
+
+			div.botline {
+				background-color: white;
+				position: absolute;
+				height: .1vh;
+				width: 45vw;
+				bottom: 6vh;
+				left: 6vw;
+			}
+
+			a.link {
+				position: absolute;
+				bottom: 5vh;
+				right: 20px;
+			}
+
+			a {
+				text-decoration: none;
+				color: white;
+				font-family: "IBM Plex Sans", Arial, sans-serif;
+				font-size: 12px;
+				font-weight: 200;
+			}
+
+			div.leftside {
+				width: 10vh;
+				height: 80vh;
+				top: 1vh;
+				left: 1vw;
+			}
+
+			div.leftline {
+				background-color: white;
+				position: absolute;
+				height: 375px;
+				width: .1vh;
+				top: 8vh;
+				left: 22px;
+				opacity: 1;
+			}
+
+			div.earlyvote {
+				font-family: "IBM Plex Sans", Arial, sans-serif;
+				font-size: 12px;
+				font-weight: 200;
+				width: 165px;
+				opacity: 1;
+				left: -60px;
+				top: 75vh;
+				transform: rotate(-90deg);
+				position: absolute;
+			}
+		}
+
+		/* big */
+		@media (min-width: 800px) and (min-height: 600px) {
+			body {
+				background-color: #2CCFD8;
+			}
+
+			svg {
+				position: absolute;
+				width: 220vh;
+				left: 22vw;
+				top: -3vh;
+			}
+
+			path.circle {
+				position: absolute;
+				top: 0vh;
+				width: 50vw;
+				left: 20vw;
+				transition: all .1s;
+			}
+
+			div.makeyourmark {
+				position: absolute;
+				width: 100px;
+				font-size: 150px;
+				font-weight: 100;
+				left: 32vw;
+				top: 10vh;
+				line-height: 25vh;
+			}
+
+			div.date {
+				text-decoration: none;
+				font-size: 22px;
+				font-weight: 200;
+				top: 6vh;
+				left: 3.5vw;
+			}
+
+			div.topline {
+				background-color: white;
+				position: absolute;
+				height: .1vh;
+				width: 73vw;
+				top: 7.5vh;
+				left: 19vw;
+			}
+
+			div.botline {
+				background-color: white;
+				position: absolute;
+				height: .1vh;
+				width: 71vw;
+				bottom: 7vh;
+				left: 3.5vw;
+			}
+
+			a.link {
+				position: absolute;
+				bottom: 6vh;
+				right: 4.5vw;
+			}
+
+			a {
+				text-decoration: none;
+				color: white;
+				font-family: "IBM Plex Sans", Arial, sans-serif;
+				font-size: 22px;
+				font-weight: 200;
+			}
+
+			div.leftside {
+				width: 100px;
+				height: 600px;
+				top: 0vh;
+				left: 1vw;
+			}
+
+			div.leftline {
+				background-color: white;
+				position: absolute;
+				height: 27vh;
+				width: .1vh;
+				top: 12vh;
+				left: 40px;
+				opacity: 1;
+			}
+
+			div.earlyvote {
+				font-family: "IBM Plex Sans", Arial, sans-serif;
+				font-size: 22px;
+				font-weight: 200;
+				width: 270px;
+				opacity: 1;
+				left: -98px;
+				bottom: 21vh;
+				transform: rotate(-90deg);
+				position: absolute;
+			}
+
+			div.rightside {
+				width: 10vh;
+				height: 100vh;
+				top: 1vh;
+				left: 93vw;
+				position: absolute;
+			}
+
+			div.midterm {
+				font-family: "IBM Plex Sans", Arial, sans-serif;
+				font-size: 22px;
+				font-weight: 200;
+				width: 170px;
+				opacity: 1;
+				right: 53px;
+				top: 116px;
+				transform: rotate(90deg);
+				position: relative;
+			}
+
+			div.rightline {
+				background-color: white;
+				position: relative;
+				height: 48vh;
+				width: .1vh;
+				top: 230px;
+				right: -30px;
+				opacity: 1;
+			}
+
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			 viewBox="0 0 1000 1000" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+			 <defs>
+        <!-- <linearGradient id="gradient" x1="50%" y1="0%" x2="50%" y2="100%" >
+
+            <stop offset="0%" stop-color="#7A5FFF">
+                <animate attributeName="stop-color" values="#7A5FFF; #01FF89; #7A5FFF" dur="4s" repeatCount="indefinite"></animate>
+            </stop>
+
+            <stop offset="100%" stop-color="#01FF89">
+                <animate attributeName="stop-color" values="#01FF89; #7A5FFF; #01FF89" dur="4s" repeatCount="indefinite"></animate>
+            </stop>
+
+        </linearGradient> -->
+
+				<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+		 <stop offset="0%" stop-color="#21d4fd">
+			 <animate attributeName="stop-color" values="#21d4fd; #7175fe; #b721ff; #7175fe; #21d4fd" dur="5s" repeatCount="indefinite"> </animate>
+		 </stop>
+		 <stop offset="50%"   stop-color="#7175fe">
+			 <animate attributeName="stop-color" values="#7175fe; #21d4fd; #9effdb; #b721ff; #7175fe" dur="5s" repeatCount="indefinite"></animate>
+		 </stop>
+		 <stop offset="100%"   stop-color="#b721ff">
+			 <animate attributeName="stop-color" values="#b721ff; #7175fe; #21d4fd; #7175fe; #b721ff" dur="5s" repeatCount="indefinite"></animate>
+		 </stop>
+
+			 </linearGradient>
+
+    </defs>
+
+			 <g>
+
+			 	<path fill="url(#gradient)" class="circle" d="M378,107.2c-14.2-4.6-25.8-16.8-39.8-22.8c-14.7-6.3-32.3-15.9-46-12.8c-43.4,9.9-85.5,25.2-128.2,38.3
+			 		c-73.2,22.3-98.3,83.7-120.2,147.7c-0.2,0.5,2.1,1.9,3.2,2.9c3.8-7.2,7.5-14.2,9.3-17.7c0,19.3-2.9,41.1,0.8,61.8
+			 		c3.8,21.2,13.9,41.3,22,63.8c2.8,0.7,13.4,0.2,15.3,4.1c16.3,32.5,47.7,42.3,78,44.9c49.5,4.2,100.8,10.7,147.7-16
+			 		c2.7-1.5,7.2-4.1,8.4-3.2c20.7,17.3,25.9-5.1,34.2-14.4c18.3-20.5,32.9-44.5,52.3-63.7C477.8,258.2,471.5,137.5,378,107.2z
+			 		 M127.1,294.8c0.2-8.5-1.7-28.5,19-15.1c-10-33.1,5.9-56.6,26.6-80.5c31-35.7,71.5-47.3,115.5-50.3c28.3-2,46.9,12.7,52.7,41.4
+			 		c7.8,39.2,0.2,73.6-31.7,100.3c-19.9,16.6-39.7,33.2-59.5,49.8c-9.9,7.1-18.8,16.7-29.7,20.7C193.2,370.9,126.3,322.9,127.1,294.8z
+			 		 M358.2,292.7c-31.5,52.8-74,79.6-126.9,76.4c77.4-28.1,118.8-85.3,134.5-164.2C382.5,233.2,380.2,255.7,358.2,292.7z"/>
+			 </g>
+			 </svg>
+		<div class="date">November 6, 2018</div>
+		<div class="topline"></div>
+		<a class="link" href="https://mica.turbovote.org/">Register online to vote here</a>
+		<div class="botline"></div>
+		<div class="rightside">
+			<div class="midterm">Midterm Election</div>
+			<div class="rightline"></div>
+		</div>
+		<div class="leftside">
+			<div class="earlyvote">Early Voting: Oct 25—Nov 1</div>
+			<div class="leftline"></div>
+			<div class="makeyourmark">MAKE YOUR MARK</div>
+		</div>
+
+	</div>
+</body>
+
+</html>
